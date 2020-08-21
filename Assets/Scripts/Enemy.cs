@@ -1,23 +1,80 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-    public float health = 50f;
 
-    public void TakeDamage (float amount)
+    Transform target;
+    NavMeshAgent agent;
+    public float CloseDistance = 2f;
+    public float turnspeed = 5f;
+    public float DamageAmount = 35f;
+    public float attackSpeed = 2f;
+    public bool canAttack = true;
+    // Start is called before the first frame update
+    void Start()
     {
-        health -= amount;
-        if(health <= 0f)
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float distance = Vector3.Distance(transform.position, target.position);
+        if(distance > CloseDistance)
         {
-            Die();
+            Chaseplayer();
+        }
+        else if(canAttack && !PlayerHealth.singleton.isDead)
+        {
+            Attacking();
+        }
+        else if (PlayerHealth.singleton.isDead)
+        {
+            DisableEnemy();
         }
     }
-
-    void Die()
+    void Chaseplayer()
     {
-        Destroy(gameObject);
+        agent.updateRotation = true;
+        agent.updatePosition = true;
+        agent.isStopped = false;
+        agent.SetDestination(target.position);
+        //walking animation here  example code anim.SetBool("iswalking, true);
+        //anim.SetBool(isAttacking", false);
     }
 
+    void Attacking()
+    {
+
+        agent.isStopped = true;
+        Vector3 direction = target.position - transform.position;
+        direction.y = 0;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), turnspeed * Time.deltaTime);
+        StartCoroutine(AttackTime());
+        //anim.SetBool("iswalking, false);
+        //anim.SetBool(isAttacking", true);
+
+        // tick the loop box because at the moment it will only ainmate once
+    }
+
+    private void DisableEnemy()
+    {
+        canAttack = false;
+        //Ani.setBool("iswalking", false);  turning off Animations and attacks when the game is done.
+        //Ani.setBool("iswalking", false);
+    }
+
+
+    IEnumerator AttackTime()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(0.5f);
+        PlayerHealth.singleton.DamagePlayer(DamageAmount);
+        yield return new WaitForSeconds(attackSpeed);
+        canAttack = true;
+    }
 
 }
