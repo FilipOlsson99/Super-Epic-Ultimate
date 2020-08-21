@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
     private float nextTimeToFire = 0f;
 
     public int maxAmmo = 10;
-    private int currentAmmo;
+    public int currentAmmo;
     public float reloadTime = 1f;
     private bool isReloading = false;
 
@@ -44,9 +44,17 @@ public class Weapon : MonoBehaviour
         {
             return;
         }
-            
-        
-        if(currentAmmo <= 0)
+
+        if (currentAmmo < maxAmmo)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+        }
+
+        if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
@@ -74,6 +82,9 @@ public class Weapon : MonoBehaviour
 
         isReloading = false;
     }
+
+
+   
 
 
     void Shoot()
