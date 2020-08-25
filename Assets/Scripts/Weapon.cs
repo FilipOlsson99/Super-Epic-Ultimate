@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public GameObject impactEffect;
     public float fireRate = 15f;
     public float x;
-    
+   
     private float nextTimeToFire = 0f;
 
     public int maxAmmo = 10;
@@ -22,8 +22,11 @@ public class Weapon : MonoBehaviour
 
     public Animator animater;
 
+   
+   
 
-   void Start()
+
+    void Start()
     {
         if(currentAmmo == -1)
         currentAmmo = maxAmmo;
@@ -66,6 +69,11 @@ public class Weapon : MonoBehaviour
             Shoot();
         }
     }
+
+  
+   
+
+
 
     IEnumerator Reload()
     {

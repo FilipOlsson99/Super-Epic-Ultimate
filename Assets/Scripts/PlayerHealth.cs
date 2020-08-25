@@ -31,6 +31,23 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    public void Healplayer(float health)
+    {
+        currentHealth += health;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+
+        }
+        myhealthbar.value = currentHealth;
+      
+    }
+
+
+    
+
+
+
     public void DamagePlayer(float damage)
     {
         if(currentHealth > 0)

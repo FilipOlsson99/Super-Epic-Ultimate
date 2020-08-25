@@ -12,9 +12,15 @@ public class Enemy : MonoBehaviour
     public float DamageAmount = 35f;
     public float attackSpeed = 2f;
     public bool canAttack = true;
+    public float distance;
+    public Animator anim;
+   
+
     // Start is called before the first frame update
     void Start()
     {
+
+       
         target = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -22,7 +28,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, target.position);
+         distance = Vector3.Distance(transform.position, target.position);
         if(distance > CloseDistance)
         {
             Chaseplayer();
@@ -42,20 +48,17 @@ public class Enemy : MonoBehaviour
         agent.updatePosition = true;
         agent.isStopped = false;
         agent.SetDestination(target.position);
-        //walking animation here  example code anim.SetBool("iswalking, true);
-        //anim.SetBool(isAttacking", false);
+        anim.SetBool("Attack", false);
     }
 
     void Attacking()
     {
-
         agent.isStopped = true;
         Vector3 direction = target.position - transform.position;
         direction.y = 0;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), turnspeed * Time.deltaTime);
         StartCoroutine(AttackTime());
-        //anim.SetBool("iswalking, false);
-        //anim.SetBool(isAttacking", true);
+        anim.SetBool("Attack", true);
 
         // tick the loop box because at the moment it will only ainmate once
     }
@@ -63,8 +66,7 @@ public class Enemy : MonoBehaviour
     private void DisableEnemy()
     {
         canAttack = false;
-        //Ani.setBool("iswalking", false);  turning off Animations and attacks when the game is done.
-        //Ani.setBool("iswalking", false);
+        anim.SetBool("Attack", false);
     }
 
 
