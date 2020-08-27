@@ -14999,7 +14999,7 @@ MonoBehaviour:
   CloseDistance: 4
   turnspeed: 5
   DamageAmount: 5
-  attackSpeed: 2
+  attackSpeed: 1.4
   canAttack: 1
   distance: 0
   anim: {fileID: 429283787826048130}

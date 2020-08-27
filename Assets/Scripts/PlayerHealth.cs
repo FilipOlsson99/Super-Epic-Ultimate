@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     public bool isDead = false;
     public Slider myhealthbar;
-
+    public GameObject hitindication;
 
     private void Awake()
     {
@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth -= damage;
             myhealthbar.value -= damage;
-
+            StartCoroutine(Hitindication());
             if(currentHealth <= 0)
             {
                 Dead();
@@ -67,6 +67,14 @@ public class PlayerHealth : MonoBehaviour
         }
       
     }
+
+    IEnumerator Hitindication()
+    {
+        hitindication.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        hitindication.SetActive(false);
+    }
+
 
     private void  Dead()
     {
