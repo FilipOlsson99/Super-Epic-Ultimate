@@ -98,7 +98,7 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         Muzzleflash.Play();
-
+        animater.SetBool("PistolRecoil", true);
         currentAmmo--;
         
         RaycastHit hitinfo;
@@ -117,7 +117,8 @@ public class Weapon : MonoBehaviour
                 hitinfo.rigidbody.AddForce(-hitinfo.normal * impactforce);
             }
 
-            Instantiate(impactEffect, hitinfo.point, Quaternion.LookRotation(hitinfo.normal));    
+            Instantiate(impactEffect, hitinfo.point, Quaternion.LookRotation(hitinfo.normal));
+            
         }
     }
 
