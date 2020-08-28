@@ -69,6 +69,8 @@ public class FirstPersonDrifter: MonoBehaviour
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
  
+        
+
         if (grounded) {
             bool sliding = false;
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,

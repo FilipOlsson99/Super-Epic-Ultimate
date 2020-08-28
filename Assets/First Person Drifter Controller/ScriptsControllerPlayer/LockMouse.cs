@@ -12,13 +12,13 @@ public class LockMouse : MonoBehaviour
 
     void Update()
     {
-    	// lock when mouse is clicked
-    	if( Input.GetMouseButtonDown(0) && Time.timeScale > 0.0f )
-    	{
-    		LockCursor(true);
-    	}
-    
-    	// unlock when escape is hit
+        // lock when mouse is clicked
+        if (Input.GetMouseButtonDown(0) && Time.timeScale > 0.0f)
+        {
+            LockCursor(true);
+        }
+
+        // unlock when escape is hit
         if  ( Input.GetKeyDown(KeyCode.Escape) )
         {
         	LockCursor(!Screen.lockCursor);

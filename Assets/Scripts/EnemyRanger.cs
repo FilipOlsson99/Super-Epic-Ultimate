@@ -16,13 +16,16 @@ public class EnemyRanger : MonoBehaviour
     public bool canAttack = true;
     public GameObject weaponEnd;
     public ParticleSystem muzzleflash;
+    private LineRenderer laserline;
+    public Transform toTranform;
+    public Transform lineWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
         //target = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-
+        laserline = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -79,23 +82,18 @@ public class EnemyRanger : MonoBehaviour
         if (canAttack)
         {
             StartCoroutine(AttackTime());
+
+            laserline.SetPosition(0, lineWeapon.position);
+            laserline.SetPosition(1, toTranform.position);
         }
         
        
-        
-        
-        
-        //anim.SetBool("iswalking, false);
-        //anim.SetBool(isAttacking", true);
-
-        // tick the loop box because at the moment it will only ainmate once
     }
 
     private void DisableEnemy()
     {
         canAttack = false;
-        //Ani.setBool("iswalking", false);  turning off Animations and attacks when the game is done.
-        //Ani.setBool("iswalking", false);
+       
     }
 
 
@@ -104,19 +102,26 @@ public class EnemyRanger : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(0.5f);
         RaycastHit hitinfo;
+
         if (Physics.Raycast(weaponEnd.transform.position, weaponEnd.transform.forward, out hitinfo, CloseDistance))          
         {
+            
             Debug.Log(hitinfo.transform.name);
             PlayerHealth target = hitinfo.transform.GetComponent<PlayerHealth>();
-
             if (target != null)
             {
+                
                 muzzleflash.Play();
                 target.DamagePlayer(DamageAmount);
+                laserline.enabled = true;
+                yield return new WaitForSeconds(0.2f);
+                laserline.enabled = false;
                 yield return new WaitForSeconds(attackSpeed);
+                
                 canAttack = true;
             }
-            
+           
+          
         }
         else
         {

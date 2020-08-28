@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public GameObject impactEffect;
     public float fireRate = 15f;
     public float x;
-   
+    
     private float nextTimeToFire = 0f;
 
     public int maxAmmo = 10;
@@ -22,14 +22,18 @@ public class Weapon : MonoBehaviour
 
     public Animator animater;
 
-   
-   
-
+    public AnimationCurve recoilZ;
+    public AnimationCurve recoilY;
+    private Vector3 startPos;
+    private float recoilTime;
+    public float recoilDuration;
+ 
 
     void Start()
     {
         if(currentAmmo == -1)
         currentAmmo = maxAmmo;
+        startPos = transform.localPosition;
     }
 
 
@@ -42,6 +46,12 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+
+
+
+       
+           
+
 
         if (isReloading)
         {
@@ -70,10 +80,6 @@ public class Weapon : MonoBehaviour
         }
     }
 
-  
-   
-
-
 
     IEnumerator Reload()
     {
@@ -92,15 +98,23 @@ public class Weapon : MonoBehaviour
     }
 
 
-   
-
+    IEnumerator GunRecoil()
+    {
+        while (recoilTime < 1)
+        {
+            recoilTime += Time.deltaTime / recoilDuration;
+            Vector3 recoilMovement = new Vector3(startPos.x, startPos.y * recoilY.Evaluate(recoilTime), startPos.z * recoilZ.Evaluate(recoilTime));
+            transform.localPosition = recoilMovement;
+            yield return new WaitForEndOfFrame();
+        }
+    }
 
     void Shoot()
     {
         Muzzleflash.Play();
-        animater.SetBool("PistolRecoil", true);
         currentAmmo--;
-        
+        recoilTime = 0;
+        StartCoroutine(GunRecoil());
         RaycastHit hitinfo;
         if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out hitinfo, range))
         {

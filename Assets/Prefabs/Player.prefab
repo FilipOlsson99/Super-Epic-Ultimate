@@ -325,7 +325,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35710607135444899}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6f00446844a44ac5b197c666ff94339, type: 3}
   m_Name: 
@@ -452,6 +452,82 @@ MonoBehaviour:
   currentAmmo: 0
   reloadTime: 1
   animater: {fileID: 786798800}
+  recoilZ:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.03727882
+      outSlope: -0.03727882
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.3622047
+    - serializedVersion: 3
+      time: 0.82916975
+      value: 0.94679385
+      inSlope: -0.0123374015
+      outSlope: -0.0123374015
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20833331
+      outWeight: 0.3852459
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.15859276
+      outSlope: 0.15859276
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.221239
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  recoilY:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.42882442
+      outSlope: -0.42882442
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.6660823
+    - serializedVersion: 3
+      time: 0.13762063
+      value: 0.9561509
+      inSlope: 0.032397494
+      outSlope: 0.032397494
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3918675
+    - serializedVersion: 3
+      time: 0.5251847
+      value: 1
+      inSlope: 0.007961591
+      outSlope: 0.007961591
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.42456594
+    - serializedVersion: 3
+      time: 0.9958191
+      value: 1
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.50460774
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  recoilDuration: 0.3
 --- !u!114 &1507460629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +553,91 @@ MonoBehaviour:
   currentAmmo: 0
   reloadTime: 1
   animater: {fileID: 786798800}
+  recoilZ:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.021867976
+      outSlope: -0.021867976
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.49999487
+      value: 0.9890661
+      inSlope: -0.027273092
+      outSlope: -0.027273092
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.47008547
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6885037
+      value: 0.99478716
+      inSlope: 0.023788527
+      outSlope: 0.023788527
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.976846
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.016734848
+      outSlope: 0.016734848
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  recoilY:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.023025576
+      outSlope: -0.023025576
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.49582317
+      value: 0.9885834
+      inSlope: -0.0006056763
+      outSlope: -0.0006056763
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7657545
+      value: 0.9944717
+      inSlope: 0.022707278
+      outSlope: 0.022707278
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.023600332
+      outSlope: 0.023600332
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  recoilDuration: 0.3
 --- !u!1 &5611760027505885879
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,11 +1092,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pistol
-      objectReference: {fileID: 0}
-    - target: {fileID: 1468811614703599901, guid: 743d46dedf816094fb903880ee2dc02e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2466034952575562510, guid: 743d46dedf816094fb903880ee2dc02e,
         type: 3}
