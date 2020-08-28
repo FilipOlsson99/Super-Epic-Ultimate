@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
    
     public void TakeDamage (float amount)
     {
+       
         health -= amount;
         if(health <= 0f)
         {
@@ -17,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        
+        FindObjectOfType<AudioManager>().Play("robot death");
     }
 
 

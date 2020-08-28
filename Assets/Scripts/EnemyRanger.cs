@@ -112,6 +112,7 @@ public class EnemyRanger : MonoBehaviour
             {
                 
                 muzzleflash.Play();
+                FindObjectOfType<AudioManager>().Play("robot gun");
                 target.DamagePlayer(DamageAmount);
                 laserline.enabled = true;
                 yield return new WaitForSeconds(0.2f);

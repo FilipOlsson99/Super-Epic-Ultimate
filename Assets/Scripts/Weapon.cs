@@ -21,6 +21,7 @@ public class Weapon : MonoBehaviour
     private bool isReloading = false;
 
     public Animator animater;
+    public string gunShootSound;
 
     public AnimationCurve recoilZ;
     public AnimationCurve recoilY;
@@ -86,6 +87,8 @@ public class Weapon : MonoBehaviour
         isReloading = true;
         Debug.Log("Reloading");
 
+        FindObjectOfType<AudioManager>().Play("Reload");
+
         animater.SetBool("Reloading", true);
        
         yield return new WaitForSeconds(reloadTime - .25f);
@@ -115,6 +118,9 @@ public class Weapon : MonoBehaviour
         currentAmmo--;
         recoilTime = 0;
         StartCoroutine(GunRecoil());
+
+        FindObjectOfType<AudioManager>().Play(gunShootSound);
+
         RaycastHit hitinfo;
         if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out hitinfo, range))
         {
