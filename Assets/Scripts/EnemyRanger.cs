@@ -83,7 +83,7 @@ public class EnemyRanger : MonoBehaviour
         {
             StartCoroutine(AttackTime());
 
-            laserline.SetPosition(0, lineWeapon.position);
+            laserline.SetPosition(0, lineWeapon.position); //bla
             laserline.SetPosition(1, toTranform.position);
         }
         
