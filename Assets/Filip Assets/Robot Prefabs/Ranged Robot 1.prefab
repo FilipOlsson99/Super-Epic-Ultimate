@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  healthboost: {fileID: 5159236071162830479, guid: e71281031b8cbc0479da4686a03c96ec,
+  healthboost: {fileID: 2389709953090699026, guid: 378c852a3651dc2498f3f31114143f67,
     type: 3}
 --- !u!120 &3303689146993498160
 LineRenderer:

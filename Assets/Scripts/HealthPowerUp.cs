@@ -6,19 +6,23 @@ public class HealthPowerUp : MonoBehaviour
 {
 
     public float healthBoost = 20f;
-    
+    public GameObject parent;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             other.GetComponent<PlayerHealth>().Healplayer(healthBoost);
             Debug.Log("picked it up");
-            Destroy(gameObject);
+            Destroy(parent);
             FindObjectOfType<AudioManager>().Play("Health pickup");
+            
         }
     }
+
+
+   
 
 
 }

@@ -78,6 +78,11 @@ public class PlayerHealth : MonoBehaviour
         hitindication.SetActive(true);
         yield return new WaitForSeconds(0.7f);
         hitindication.SetActive(false);
+
+        if (currentHealth <= 0)
+        {
+            hitindication.SetActive(true);
+        }
         
     }
 

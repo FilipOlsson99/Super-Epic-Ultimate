@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
         if(health <= 0f)
         {
             Die();
-            Instantiate(healthboost, transform.localPosition, Quaternion.identity);
+            Instantiate(healthboost, transform.position, Quaternion.identity);
         }
     }
 
