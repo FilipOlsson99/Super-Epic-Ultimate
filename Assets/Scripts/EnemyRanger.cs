@@ -17,7 +17,6 @@ public class EnemyRanger : MonoBehaviour
     public GameObject weaponEnd;
     public ParticleSystem muzzleflash;
     private LineRenderer laserline;
-    public Transform toTranform;
     public Transform lineWeapon;
 
     // Start is called before the first frame update
@@ -83,8 +82,8 @@ public class EnemyRanger : MonoBehaviour
         {
             StartCoroutine(AttackTime());
 
-            laserline.SetPosition(0, lineWeapon.position); //bla
-            laserline.SetPosition(1, toTranform.position);
+            laserline.SetPosition(0, lineWeapon.position);
+            laserline.SetPosition(1, target.transform.position);
         }
         
        

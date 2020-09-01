@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public bool canAttack = true;
     public float distance;
     public Animator anim;
-   
+    
 
     // Start is called before the first frame update
     void Start()

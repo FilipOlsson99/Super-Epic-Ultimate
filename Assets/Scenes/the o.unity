@@ -203,75 +203,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &511647244
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 511647246}
-  - component: {fileID: 511647245}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &511647245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511647244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde0969ba3bd5494dbed5f8b06f3b61a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Theme
-    CLip: {fileID: 0}
-    volume: 1
-    pitch: 0.1
-    source: {fileID: 0}
-  - name: big gun fire
-    CLip: {fileID: 8300000, guid: 1b708313e8c0dfe4cab6bed00ee07ec1, type: 3}
-    volume: 0.819
-    pitch: 1
-    source: {fileID: 0}
-  - name: robot death
-    CLip: {fileID: 8300000, guid: 0c36423f8295c654ebd94a80c038bcda, type: 3}
-    volume: 0.07
-    pitch: 1
-    source: {fileID: 0}
-  - name: robot hit
-    CLip: {fileID: 8300000, guid: 22f0e082d38330f4986d070cbe1c9494, type: 3}
-    volume: 0.087
-    pitch: 1
-    source: {fileID: 0}
-  - name: Reload
-    CLip: {fileID: 8300000, guid: a7f908062ccf262428471f648b80e098, type: 3}
-    volume: 0.292
-    pitch: 1
-    source: {fileID: 0}
---- !u!4 &511647246
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511647244}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &526097170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1724,3 +1655,72 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1001 &6629337012422667992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6629337012118909140, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629337012118909142, guid: d1dcdb1eb21e1464187739d0ad95bfdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1dcdb1eb21e1464187739d0ad95bfdd, type: 3}

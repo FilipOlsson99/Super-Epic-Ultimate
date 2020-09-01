@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 public class TimerController : MonoBehaviour
 {
     public static TimerController instance;
 
     public Text timeCounter;
 
-    private TimeSpan timePlaying;
-    private bool timerGoing;
+    public TimeSpan timePlaying;
+    public bool timerGoing;
 
-    private float elaspedTime;
+    public float elaspedTime;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class TimerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeCounter.text = "00:00.00";
+        timeCounter.text = "00:00";
         timerGoing = false;
         BeginTimer();
     }
@@ -36,6 +37,8 @@ public class TimerController : MonoBehaviour
 
     }
 
+
+   
 
     public void EndTimer()
     {
@@ -52,7 +55,7 @@ public class TimerController : MonoBehaviour
             timeCounter.text = timePlayingStr;
             Debug.Log("timer is Going");
             yield return null;
-               
+    
         }
 
     }
