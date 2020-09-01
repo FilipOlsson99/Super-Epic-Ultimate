@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth singleton;
@@ -10,16 +11,20 @@ public class PlayerHealth : MonoBehaviour
     public bool isDead = false;
     public Slider myhealthbar;
     public GameObject hitindication;
+    public Camera cam;
+    public Animator anim;
+   
+
+
 
     private void Awake()
     {
+        currentHealth = maxHealth;
         singleton = this;
     }
     // Start is called before the first frame update
     void Start()
     {
-    
-        currentHealth = maxHealth;
         myhealthbar.value = currentHealth;
     }
 
@@ -76,13 +81,20 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+    private void Loadscene()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
 
     private void  Dead()
     {
         currentHealth = 0;
+        anim.SetBool("Isdead", true);
         Debug.Log("Player is Dead");
         isDead = true;
-        
+        TimerController.instance.EndTimer();   
+        Invoke("Loadscene", 3.0f);
     }
 
 }
