@@ -15,9 +15,9 @@ public class HealthPowerUp : MonoBehaviour
         {
             other.GetComponent<PlayerHealth>().Healplayer(healthBoost);
             Debug.Log("picked it up");
-            Destroy(parent);
-            FindObjectOfType<AudioManager>().Play("Health pickup");
-            
+            Destroy(gameObject);
+            //FindObjectOfType<AudioManager>().Play("Health pickup");
+            AudioManagerDemo.instance.PlaySound(AudioClipss.health);
         }
     }
 
