@@ -78,6 +78,7 @@ public class PlayerHealth : MonoBehaviour
         hitindication.SetActive(true);
         yield return new WaitForSeconds(0.7f);
         hitindication.SetActive(false);
+        AudioManagerDemo.instance.PlaySound(AudioClipss.bodyhit);
 
         if (currentHealth <= 0)
         {

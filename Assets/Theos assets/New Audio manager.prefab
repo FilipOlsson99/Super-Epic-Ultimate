@@ -1615,6 +1615,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6da7690f101559b49ab7089a0ab43cc0, type: 3}
   health:
   - {fileID: 8300000, guid: 91f02f1111ade6844b3c7f007cd324e5, type: 3}
+  bodyhit:
+  - {fileID: 8300000, guid: b4aaf3ba6287a3746af9c2fc74bc2bb0, type: 3}
   audioSources: []
 --- !u!1 &2532023590715277470
 GameObject:
