@@ -117,7 +117,6 @@ public class EnemyRanger : MonoBehaviour
                 laserline.enabled = true;     
                 yield return new WaitForSeconds(0.2f);
                 laserline.enabled = false;
-                anim.SetBool("RangedAttack", false);
                 yield return new WaitForSeconds(attackSpeed);
                 
                 canAttack = true;

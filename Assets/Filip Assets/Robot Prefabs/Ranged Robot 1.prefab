@@ -31,6 +31,36 @@ Transform:
   m_Father: {fileID: 8302700009018709439}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 84.743004, z: 0}
+--- !u!1 &1108041679482164566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3734504920432582694}
+  m_Layer: 0
+  m_Name: DeathCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3734504920432582694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108041679482164566}
+  m_LocalRotation: {x: -0, y: 0.68872803, z: -0, w: 0.7250198}
+  m_LocalPosition: {x: 0.022, y: -0.64, z: 0.097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8302700009018709439}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1802847634970366023
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7507970942125100515}
+  - {fileID: 3734504920432582694}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -87.059006, z: 0}
@@ -433,6 +464,9 @@ MonoBehaviour:
   health: 50
   healthboost: {fileID: 2389709953090699026, guid: 378c852a3651dc2498f3f31114143f67,
     type: 3}
+  DeathParticles: {fileID: 6602071493609676191, guid: be1f2720dc654dc47a45aa77acb63abe,
+    type: 3}
+  deathposition: {fileID: 3734504920432582694}
 --- !u!120 &3303689146993498160
 LineRenderer:
   m_ObjectHideFlags: 0
