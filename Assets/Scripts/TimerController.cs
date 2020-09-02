@@ -24,7 +24,7 @@ public class TimerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeCounter.text = "00:00";
+        timeCounter.text = "00:00:00";
         timerGoing = false;
         BeginTimer();
     }

@@ -18,6 +18,7 @@ public class EnemyRanger : MonoBehaviour
     public ParticleSystem muzzleflash;
     private LineRenderer laserline;
     public Transform lineWeapon;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -66,8 +67,7 @@ public class EnemyRanger : MonoBehaviour
         agent.updatePosition = true;
         agent.isStopped = false;
         agent.SetDestination(target.transform.position);
-        //walking animation here  example code anim.SetBool("iswalking, true);
-        //anim.SetBool(isAttacking", false);
+        anim.SetBool("RangedAttack", false);
     }
 
     void Attacking()
@@ -114,9 +114,10 @@ public class EnemyRanger : MonoBehaviour
                 // FindObjectOfType<AudioManager>().Play("robot gun");
                 AudioManagerDemo.instance.PlaySound(AudioClipss.robotgun);
                 target.DamagePlayer(DamageAmount);
-                laserline.enabled = true;
+                laserline.enabled = true;     
                 yield return new WaitForSeconds(0.2f);
                 laserline.enabled = false;
+                anim.SetBool("RangedAttack", false);
                 yield return new WaitForSeconds(attackSpeed);
                 
                 canAttack = true;
