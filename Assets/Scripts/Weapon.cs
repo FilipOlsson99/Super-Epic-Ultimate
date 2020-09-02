@@ -124,6 +124,9 @@ public class Weapon : MonoBehaviour
 
         recoilTime = 0;
         StartCoroutine(GunRecoil());
+
+        FindObjectOfType<AudioManager>().Play(gunShootSound);
+
         RaycastHit hitinfo;
         if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out hitinfo, range))
         {
