@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void ClickStart()
     {
         Debug.Log("Scene Loaded");
-        SceneManager.LoadScene("the o");
+        SceneManager.LoadScene("TestAreaDan");
     }
 
     public void ClickInstructions()
