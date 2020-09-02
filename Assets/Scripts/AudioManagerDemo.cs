@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AudioClipss { biggunfire, robothit,pistol,robotdeath,reload, spawn, robotgun, health  };
+public enum AudioClipss { biggunfire, robothit,pistol,robotdeath,reload, spawn, robotgun, health, bodyhit  };
 
 public class AudioManagerDemo : MonoBehaviour
 {
@@ -16,6 +16,7 @@ public class AudioManagerDemo : MonoBehaviour
     [SerializeField] AudioClip[] spawn;
     [SerializeField] AudioClip[] robotgun;
     [SerializeField] AudioClip[] health;
+    [SerializeField] AudioClip[] bodyhit;
 
 
 
@@ -82,6 +83,10 @@ public class AudioManagerDemo : MonoBehaviour
                 break;
             case AudioClipss.health:
                 audioSources[i].clip = health[0];
+                audioSources[i].Play();
+                break;
+            case AudioClipss.bodyhit:
+                audioSources[i].clip = bodyhit[0];
                 audioSources[i].Play();
                 break;
         }
