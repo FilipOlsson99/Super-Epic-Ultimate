@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), turnspeed * Time.deltaTime);
         StartCoroutine(AttackTime());
         anim.SetBool("Attack", true);
+        
 
         // tick the loop box because at the moment it will only ainmate once
     }
@@ -77,6 +78,7 @@ public class Enemy : MonoBehaviour
         PlayerHealth.singleton.DamagePlayer(DamageAmount);
         yield return new WaitForSeconds(attackSpeed);
         canAttack = true;
+
     }
 
 }

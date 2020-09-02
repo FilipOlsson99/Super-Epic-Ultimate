@@ -1,8 +1,10 @@
 ﻿using UnityEngine.Audio;
+using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
 
     public Sound[] sounds;
 
@@ -19,9 +21,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Update is called once per framesdfsf
-    void Update()
+    void Start()
     {
-        
+        Play("Theme");
+    }
+
+
+    public void Play (string name)
+    {
+       Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Play();
     }
 }
