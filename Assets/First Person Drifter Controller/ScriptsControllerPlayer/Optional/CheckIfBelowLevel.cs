@@ -31,7 +31,7 @@ public class CheckIfBelowLevel : MonoBehaviour
 	{
 		Debug.Log("Player fell below level");
 	
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene("GameOver");
 
 
 		
