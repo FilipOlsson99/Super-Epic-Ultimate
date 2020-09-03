@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth -= damage;
             myhealthbar.value -= damage;
             StartCoroutine(Hitindication());
-            if(currentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 Dead();
                 myhealthbar.value = 0;
@@ -75,17 +75,25 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator Hitindication()
     {
+      
         hitindication.SetActive(true);
         yield return new WaitForSeconds(0.7f);
         hitindication.SetActive(false);
-        AudioManagerDemo.instance.PlaySound(AudioClipss.bodyhit);
+        
+
 
         if (currentHealth <= 0)
         {
             hitindication.SetActive(true);
+           
         }
         
     }
+
+   
+       
+  
+
 
     private void Loadscene()
     {
