@@ -551,34 +551,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2532023590662040909, guid: e2bb8348031b6e04da1fcf29afc90426,
-        type: 3}
-      propertyPath: Button.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532023590662040909, guid: e2bb8348031b6e04da1fcf29afc90426,
-        type: 3}
-      propertyPath: Button.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 103de6fd24236b0449ee35aad7be4586, type: 3}
-    - target: {fileID: 2532023590662040909, guid: e2bb8348031b6e04da1fcf29afc90426,
-        type: 3}
-      propertyPath: menumusic
-      value: 
-      objectReference: {fileID: 8300000, guid: 274cb66d50e42a041b60ddf28753b622, type: 3}
-    - target: {fileID: 2532023590662040909, guid: e2bb8348031b6e04da1fcf29afc90426,
-        type: 3}
-      propertyPath: musicsource
-      value: 
-      objectReference: {fileID: 1587121931}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2bb8348031b6e04da1fcf29afc90426, type: 3}
---- !u!82 &1587121931 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 344048005, guid: e2bb8348031b6e04da1fcf29afc90426,
-    type: 3}
-  m_PrefabInstance: {fileID: 1587121930}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1690787163
 GameObject:
   m_ObjectHideFlags: 0

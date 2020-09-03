@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AudioClipss { biggunfire, robothit,pistol,robotdeath,reload, spawn, robotgun, health, bodyhit, Button  };
+public enum AudioClipss { biggunfire, robothit, pistol, robotdeath, reload, spawn, robotgun, health, bodyhit, Button  };
 
 public class AudioManagerDemo : MonoBehaviour
 {

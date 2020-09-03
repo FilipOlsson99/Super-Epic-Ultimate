@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    private void Start()
-    {
-        AudioManagerDemo.instance.PlayMenuMusic();
-        
-    }
 
     public void ClickStart()
     {
