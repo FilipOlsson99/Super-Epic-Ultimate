@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AudioClipss { biggunfire, robothit,pistol,robotdeath,reload, spawn, robotgun, health, bodyhit  };
+public enum AudioClipss { biggunfire, robothit,pistol,robotdeath,reload, spawn, robotgun, health, bodyhit, Button  };
 
 public class AudioManagerDemo : MonoBehaviour
 {
@@ -17,10 +17,15 @@ public class AudioManagerDemo : MonoBehaviour
     [SerializeField] AudioClip[] robotgun;
     [SerializeField] AudioClip[] health;
     [SerializeField] AudioClip[] bodyhit;
+    [SerializeField] AudioClip[] Button;
 
 
 
     public List<AudioSource> audioSources = new List<AudioSource>();
+
+    public AudioSource musicsource;
+    public AudioClip menumusic;
+    public AudioClip gamemusic;
 
 
     private void Awake()
@@ -28,11 +33,28 @@ public class AudioManagerDemo : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+        
+    }
+
+    public void PlayMenuMusic()
+    {
+        musicsource.clip = menumusic;
+        musicsource.Play();
+        
+
+    }
+
+    public void PlayGameMusic()
+    {
+        musicsource.clip = gamemusic;
+        musicsource.Play();
+
     }
 
     private int GetNonPlayingAudioSource()
@@ -87,6 +109,10 @@ public class AudioManagerDemo : MonoBehaviour
                 break;
             case AudioClipss.bodyhit:
                 audioSources[i].clip = bodyhit[0];
+                audioSources[i].Play();
+                break;
+            case AudioClipss.Button:
+                audioSources[i].clip = Button[0];
                 audioSources[i].Play();
                 break;
         }
