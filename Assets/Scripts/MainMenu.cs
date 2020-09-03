@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         AudioManagerDemo.instance.PlaySound(AudioClipss.Button);
         Debug.Log("Scene Loaded");
-        SceneManager.LoadScene("TestAreaDan");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void ClickInstructions()
@@ -19,6 +19,13 @@ public class MainMenu : MonoBehaviour
         AudioManagerDemo.instance.PlaySound(AudioClipss.Button);
         Debug.Log("Instructions");
         SceneManager.LoadScene("Instructions");
+    }
+
+    public void ClickCredits()
+    {
+        AudioManagerDemo.instance.PlaySound(AudioClipss.Button);
+        Debug.Log("Credits");
+        SceneManager.LoadScene("Credits");
     }
 
     public void ClickMainMenu()
