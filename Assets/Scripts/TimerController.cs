@@ -28,6 +28,13 @@ public class TimerController : MonoBehaviour
         timerGoing = false;
         BeginTimer();
     }
+
+    private void OnEnable()
+    {
+        timerGoing = true;
+        StartCoroutine(UpdateTimer());
+    }
+
     public void BeginTimer()
     {
         timerGoing = true;
@@ -36,9 +43,6 @@ public class TimerController : MonoBehaviour
         StartCoroutine(UpdateTimer());
 
     }
-
-
-   
 
     public void EndTimer()
     {
@@ -53,7 +57,6 @@ public class TimerController : MonoBehaviour
             timePlaying = TimeSpan.FromSeconds(elaspedTime);
             string timePlayingStr = timePlaying.ToString("mm':'ss'.'ff");
             timeCounter.text = timePlayingStr;
-            Debug.Log("timer is Going");
             yield return null;
     
         }

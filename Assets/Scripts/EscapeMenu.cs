@@ -6,6 +6,7 @@ public class EscapeMenu : MonoBehaviour
 {
     public static bool isGamePaused = false;
     public GameObject PauseCanvas;
+    public GameObject MainCanvas;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +30,7 @@ public class EscapeMenu : MonoBehaviour
         PauseCanvas.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
+        MainCanvas.SetActive(true);
     }
 
 
@@ -37,19 +39,15 @@ public class EscapeMenu : MonoBehaviour
         PauseCanvas.SetActive(true);
         Time.timeScale = 0f;
         isGamePaused = true;
+        MainCanvas.SetActive(false);
     }
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("StartScreen");
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-        Debug.Log("QUIT");
-
-    }
+ 
 
 }
 

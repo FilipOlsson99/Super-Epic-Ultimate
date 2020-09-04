@@ -443,7 +443,7 @@ MonoBehaviour:
   CloseDistance: 8
   turnspeed: 0.5
   DamageAmount: 10
-  attackSpeed: 1
+  attackSpeed: 3
   canAttack: 1
   weaponEnd: {fileID: 8302700009875742209}
   muzzleflash: {fileID: 8302700009284493463}
@@ -467,6 +467,7 @@ MonoBehaviour:
   DeathParticles: {fileID: 6602071493609676191, guid: be1f2720dc654dc47a45aa77acb63abe,
     type: 3}
   deathposition: {fileID: 3734504920432582694}
+  parent: {fileID: 0}
 --- !u!120 &3303689146993498160
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -15034,7 +15034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CloseDistance: 3.5
   turnspeed: 5
-  DamageAmount: 5
+  DamageAmount: 25
   attackSpeed: 1.4
   canAttack: 1
   distance: 0
