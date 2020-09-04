@@ -9,11 +9,12 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     public float maxHealth = 100f;
     public bool isDead = false;
+    public LockMouse Lock;
     public Slider myhealthbar;
     public GameObject hitindication;
     public Camera cam;
     public Animator anim;
-   
+    
 
 
 
@@ -90,13 +91,11 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-   
-       
   
-
 
     private void Loadscene()
     {
+        GetComponent<LockMouse>().LockCursor(true);
         SceneManager.LoadScene("GameOver");
     }
 

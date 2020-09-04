@@ -4,29 +4,46 @@ using UnityEngine;
 using System.Collections;
 
 public class LockMouse : MonoBehaviour
-{	
+{
+
+    [SerializeField] private bool startLocked = true;
+    private bool mouseLocked;
+
 	void Start()
 	{
-		LockCursor(true);
+		LockCursor(startLocked);
 	}
 
     void Update()
     {
-        // lock when mouse is clicked
-        if (Input.GetMouseButtonDown(0) && Time.timeScale > 0.0f)
-        {
-            LockCursor(true);
-        }
+
 
         // unlock when escape is hit
         if  ( Input.GetKeyDown(KeyCode.Escape) )
         {
-        	LockCursor(!Screen.lockCursor);
+            LockCursor(!mouseLocked);
+
         }
+
     }
     
     public void LockCursor(bool lockCursor)
     {
-    	Screen.lockCursor = lockCursor;
+        mouseLocked = lockCursor;
+        switch (lockCursor)
+        {
+            case true:
+                Cursor.lockState = CursorLockMode.Locked;
+                break;
+            case false:
+                Cursor.lockState = CursorLockMode.None;
+                break;
+        }
+
+    }
+
+    public void UnlockCursor()
+    {
+        LockCursor(false);
     }
 }
