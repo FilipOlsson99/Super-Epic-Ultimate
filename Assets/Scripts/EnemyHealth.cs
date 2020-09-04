@@ -7,17 +7,20 @@ public class EnemyHealth : MonoBehaviour
     public GameObject healthboost;
     public ParticleSystem DeathParticles;
     public Transform deathposition;
+    public GameObject parent;
     public void TakeDamage (float amount)
     {
         AudioManagerDemo.instance.PlaySound(AudioClipss.robothit);
         health -= amount;
+       
         if(health <= 0f)
         {
-            Die();
-            
-            Instantiate(healthboost, transform.position, Quaternion.identity);
+            Die();          
+            Instantiate(healthboost, transform.position, Quaternion.identity);   
         }
     }
+
+  
 
     void Die()
     {

@@ -16,11 +16,18 @@ public class HealthPowerUp : MonoBehaviour
             other.GetComponent<PlayerHealth>().Healplayer(healthBoost);
             Debug.Log("picked it up");
             AudioManagerDemo.instance.PlaySound(AudioClipss.health);
-            Destroy(parent);       
+            Destroy(parent);
+        } 
+        else
+        {
+            Invoke("DestroyHealth", 5f);
         }
     }
 
-
+    public void DestroyHealth()
+    {
+        Destroy(parent);
+    }
    
 
 

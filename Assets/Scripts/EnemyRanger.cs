@@ -19,6 +19,7 @@ public class EnemyRanger : MonoBehaviour
     private LineRenderer laserline;
     public Transform lineWeapon;
     public Animator anim;
+    private RaycastHit hitinfo;
 
     // Start is called before the first frame update
     void Start()
@@ -81,9 +82,6 @@ public class EnemyRanger : MonoBehaviour
         if (canAttack)
         {
             StartCoroutine(AttackTime());
-
-            laserline.SetPosition(0, lineWeapon.position);
-            laserline.SetPosition(1, target.transform.position);
         }
         
        
@@ -100,7 +98,9 @@ public class EnemyRanger : MonoBehaviour
     {
         canAttack = false;
         yield return new WaitForSeconds(0.5f);
-        RaycastHit hitinfo;
+        canAttack = true;
+        
+
 
         if (Physics.Raycast(weaponEnd.transform.position, weaponEnd.transform.forward, out hitinfo, CloseDistance))          
         {
@@ -113,19 +113,31 @@ public class EnemyRanger : MonoBehaviour
                 muzzleflash.Play();
                 // FindObjectOfType<AudioManager>().Play("robot gun");
                 AudioManagerDemo.instance.PlaySound(AudioClipss.robotgun);
+                
+                Debug.Log("Hit a collider");
+                
+                laserline.enabled = true;
+                laserline.SetPosition(0, lineWeapon.position);
+                laserline.SetPosition(1, hitinfo.transform.position);
                 target.DamagePlayer(DamageAmount);
-                laserline.enabled = true;     
                 yield return new WaitForSeconds(0.2f);
                 laserline.enabled = false;
                 yield return new WaitForSeconds(attackSpeed);
-                
-                canAttack = true;
             }
-           
-          
         }
         else
         {
+            Debug.Log("shooting into the void");
+            laserline.enabled = true;
+            laserline.SetPosition(0, lineWeapon.position);
+            laserline.SetPosition(1, lineWeapon.forward * 20);
+            
+            yield return new WaitForSeconds(0.2f);
+            laserline.enabled = false;
+            yield return new WaitForSeconds(attackSpeed);
+
+
+
             Debug.Log("Can't find player");
             //Attacking();
         }
